@@ -1,0 +1,26 @@
+# ===== Go =====
+# Binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binaries
+*.test
+
+# Coverage
+*.out
+
+# ===== Go workspace =====
+go.work
+go.work.sum
+
+# ===== OS =====
+.DS_Store
+Thumbs.db
+
+# ===== Editor =====
+.vscode/
+.idea/
+*.swp
