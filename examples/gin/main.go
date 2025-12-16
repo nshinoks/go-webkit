@@ -35,7 +35,9 @@ func main() {
 			respond.Error(c.Writer, errors.BadRequest("id must not be 0"))
 			return
 		}
-		respond.JSON(c.Writer, 200, map[string]any{"id": c.Param("id")})
+		// respond.JSON(c.Writer, 200, map[string]any{"id": c.Param("id")})
+		user := gin.H{"id": c.Param("id")}
+		respond.OK(c.Writer, c.Request, user)
 	})
 
 	_ = r.Run(":8080")

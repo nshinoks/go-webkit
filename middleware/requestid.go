@@ -5,6 +5,8 @@ import (
 	"crypto/rand"
 	"encoding/hex"
 	"net/http"
+
+	"github.com/nshinoks/go-webkit/request"
 )
 
 type ctxKey int
@@ -45,7 +47,7 @@ func RequestID(opts ...RequestIDOption) func(http.Handler) http.Handler {
 				id = o.Generator()
 			}
 			w.Header().Set(o.HeaderName, id)
-			ctx := context.WithValue(r.Context(), requestIDKey, id)
+			ctx := request.WithRequestID(r.Context(), id)
 			next.ServeHTTP(w, r.WithContext(ctx))
 		})
 	}
